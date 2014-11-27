@@ -1,25 +1,15 @@
 # Write a method named get_squares that takes an array of numbers
 # and returns a sorted array containing only the numbers whose square is also in the array
 # 
-	def in_string? nr
-		@my_array.each do |double|
-			if nr*nr == double
-				return true
-			end
-		end
-		false
-	end
-
 	def get_squares my_array
 		@my_array = my_array
 		result = []
 	
 		result = @my_array.select do |nr| 
-			true if in_string?(nr)
+			true if @my_array.any? {|double| nr*nr==double}
 		end
 		result.sort!
 		result
-		# print result
 	end
 
 # get_squares [9]                      # => []

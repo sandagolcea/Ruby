@@ -11,3 +11,7 @@ to run the tests - e.g. session 1, 2nd file:
 
 ###20minRuby
 Is the ruby in 20 minutes from ruby-lang.org
+
+
+####Other materials:
+https://www.ruby-lang.org/en/documentation/
