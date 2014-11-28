@@ -11,6 +11,11 @@ def mod_three my_array
 	p to_return
 end
 
+# very nice solution from Steph
+# def mod_three(numbers)
+	# numbers.select {|x| x%3 == 1 || x%3 ==2}.map { |x| x%3 }
+# end
+
 # EXAMPLES:
 # mod_three [0]  # => []
 # mod_three [1]  # => [1]

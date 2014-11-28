@@ -1,6 +1,7 @@
 # Write a method named get_squares that takes an array of numbers
 # and returns a sorted array containing only the numbers whose square is also in the array
 # 
+# version 1, see also version 2 for refractored version
 	def in_string? nr
 		@my_array.each do |double|
 			if nr*nr == double
