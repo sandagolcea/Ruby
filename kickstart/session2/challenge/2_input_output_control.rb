@@ -21,7 +21,7 @@
 def hi_hi_goodbye
   # your code here
   bye = false
-
+  
   while !bye do
   	puts 'Enter a number or bye'
   	user_input = gets.chomp

@@ -8,6 +8,41 @@
 # then dividing both by that number.
 # I have included a greatest common divisor method for you
 # You should also define a method, to_s, that will represent the Fraction as a String
+
+class Fraction
+
+  def numerator=(a) ; @numerator = a ; end	
+  def numerator ; @numerator ; end
+
+  def denominator=(b) ; @denominator = b ; end
+  def denominator ; @denominator ; end	
+  # OR
+  # attr_accessor 'numerator','denominator'
+  
+  def initialize numerator, denominator
+  	@numerator = numerator
+  	@denominator = denominator
+  end
+
+  # greatest common divisor
+  def gcd(a,b)
+    if b == 0 then a else gcd( b , a%b ) end
+  end
+  
+  def to_f
+  	numerator/denominator.to_f
+  end
+
+  def lowest 
+  	divisor = gcd(@numerator, @denominator)
+  	f = Fraction.new @numerator/divisor, @denominator/divisor
+  end
+
+  def to_s
+  	numerator.to_s + "/" + denominator.to_s
+  end
+end
+
 #
 # EXAMPLE:
 # f = Fraction.new 20 , 60
@@ -19,11 +54,3 @@
 # f.denominator = 100
 # f.to_s                        # => "50/100"
 # f.to_f                        # => 0.5
-
-class Fraction
-
-  def gcd(a,b)
-    if b == 0 then a else gcd( b , a%b ) end
-  end
-  
-end
