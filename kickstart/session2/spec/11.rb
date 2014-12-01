@@ -55,6 +55,15 @@ describe 'BeerSong' do
     end.split("\n").should == Array.new
   end
   
+  it 'should be correct for twenty bottles of beer' do
+     check_results_for 20
+  end
+  
+  it 'should be correct for forty bottles of beer' do
+     check_results_for 40
+  end
+    
+
   it 'should print the entire song for 99' do
     check_results_for 99
   end
