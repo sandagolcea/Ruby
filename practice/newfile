@@ -1,0 +1,21 @@
+[0;91;49mBOT:  Hello, what's your name?[0m
+[0;92;49mUSER: Sandy[0m
+[0;91;49mBOT:  Hello Sandy[0m
+[0;92;49mUSER: how are you?[0m
+[0;91;49mBOT:  I'm feeling good, how are you feeling today?[0m
+[0;92;49mUSER: good[0m
+[0;91;49mBOT:  Great![0m
+[0;92;49mUSER: wanna go see a movie?[0m
+[0;91;49mBOT:  Yes!![0m
+[0;92;49mUSER: when are you free?[0m
+[0;91;49mBOT:  Tomorrow works for me.[0m
+[0;92;49mUSER: I can't tomorrow[0m
+[0;91;49mBOT:  [0m[0;91;49msorry?[0m
+[0;92;49mUSER: I don't have time tomorrow[0m
+[0;91;49mBOT:  [0m[0;91;49msorry?[0m
+[0;92;49mUSER: I do not have time tomorrow![0m
+[0;91;49mBOT:  I understand.[0m
+[0;92;49mUSER: ok[0m
+[0;91;49mBOT:  Sure[0m
+[0;92;49mUSER: bye[0m
+[0;91;49mBOT:  tty later ;)[0m
