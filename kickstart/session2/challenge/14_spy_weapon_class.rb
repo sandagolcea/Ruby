@@ -25,21 +25,25 @@ class Spy
 end
 
 class Weapon
-	attr_accessor 'name','price'
+	# attr_accessor :name, :price, :owner
+	attr_accessor :name, :price
 	def initialize(name, owner, price = 0)
 		self.name = name
 		self.price = price
-		@owner = owner
+		# @owner = owner
+		self.owner = owner
 
 		owner.weapons << self
 	end
 end
 
-# james = Spy.new 'James Bond'
-# jason = Spy.new 'Jason Bourne' 
+"Adds kids class pairing exercise"
 
-# jason.add_weapon 'Axe'
-# james.add_weapon 'Knife', 10
-# james.add_weapon 'Makarov pistol', 110
-# jason.show_weapons
-# james.show_weapons
+james = Spy.new 'James Bond'
+jason = Spy.new 'Jason Bourne' 
+
+jason.add_weapon 'Axe'
+james.add_weapon 'Knife', 10
+james.add_weapon 'Makarov pistol', 110
+jason.show_weapons
+james.show_weapons
