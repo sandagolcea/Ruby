@@ -17,7 +17,7 @@ describe Array do
     expect( [1,2,3,4].reinject { |memo,item| memo * item } ).to eq 24
   end
 
-  context 'with a symbol' do
+  context 'with a starting point' do
 
     it 'can add numbers together with a starting point' do
       expect( [1,2,3,4].inject(10) { |memo,item| memo + item } ).to eq 20 
@@ -38,6 +38,13 @@ describe Array do
       expect( ["A","B","C"].reinject { |memo,item| memo + item } ).to eq "ABC" 
     end
 
+  end
+
+  context 'with a symbol' do
+    it 'can add numbers using a symbol' do
+      expect([1,2,3,4].inject(:+)).to eq 10
+      expect([1,2,3,4].reinject(:+)).to eq 10
+    end
   end
 
 end

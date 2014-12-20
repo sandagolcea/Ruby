@@ -3,6 +3,13 @@ class Array
   def reinject(memo=nil,&block)
      array = self
      memo ||= array.shift
+
+     # added this block
+    if memo.is_a?(Symbol)
+      block = memo.to_proc
+      memo = array.shift 
+    end
+
      array.unshift(memo) # adds memo at the beggining of the array
 
      recursive_reinject(array,block)
