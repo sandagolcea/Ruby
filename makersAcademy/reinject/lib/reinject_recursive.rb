@@ -1,25 +1,27 @@
 class Array
 
-  def reinject(memo=nil,&block)
+  def reinject_recursive(memo=nil, sym=nil, &block)
      array = self
      memo ||= array.shift
 
-     # added this block
     if memo.is_a?(Symbol)
-      block = memo.to_proc
+      sym = memo 
       memo = array.shift 
     end
 
+    block = sym.to_proc if sym
+    
+
      array.unshift(memo) # adds memo at the beggining of the array
 
-     recursive_reinject(array,block)
+     recursive_reinject_helper(array,block)
   end  
 
-  def recursive_reinject(array,block)
+  def recursive_reinject_helper(array,block)
     return array.first if array.size <= 1
     array.unshift( block.call(array.shift,array.shift) )
    
-    recursive_reinject(array, block) 
+    recursive_reinject_helper(array, block) 
   end
 
   # This is the same as the method before
@@ -36,3 +38,4 @@ class Array
   # end
 
 end
+
