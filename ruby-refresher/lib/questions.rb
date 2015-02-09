@@ -76,33 +76,41 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
+  array.select { |word| word.reverse == word}.length
 end
 
 # return the shortest word in an array
 def shortest_word_in_array(array)
+  array.sort_by { |word| word.length }.first
 end
 
 # return the shortest word in an array
 def longest_word_in_array(array)
+  array.sort_by { |word| word.length }.last
 end
 
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
+  array.inject() { |memo, number| memo + number }
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
+  array + array
 end
 
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
+  symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 33
 def average_of_array(array)
+  sum = array.inject() { |memo, number| memo + number }
+  ((sum + 0.0) / array.length).round
 end
 
 # get all the elements in an array, up until the first element
@@ -129,6 +137,7 @@ end
 # {'a' => 'b', 'c' => 'd'} becomes
 # {'b' => 'a', 'd' => 'c'}
 def swap_keys_and_values_in_a_hash(hash)
+  hash.invert
 end
 
 # in a hash where the keys and values are all numbers

@@ -76,37 +76,37 @@ describe 'the Friday test :)' do
     expect(n).to eq [[2, 4, 6], [1, 3, 5, 7]]
   end
 
-  xit 'number_of_elements_that_are_palindromes' do
+  it 'number_of_elements_that_are_palindromes' do
     n = number_of_elements_that_are_palindromes ['bob', 'radar', 'alex', 'noon', 'banana']
     expect(n).to eq 3
   end
 
-  xit 'shortest_word_in_array' do
+  it 'shortest_word_in_array' do
     n = shortest_word_in_array %w(here is a bunch of words of different lengths)
     expect(n).to eq 'a'
   end
 
-  xit 'longest_word_in_array' do
+  it 'longest_word_in_array' do
     n = longest_word_in_array %w(here is a bunch of words of different lengths)
     expect(n).to eq 'different'
   end
 
-  xit 'total_of_array' do
+  it 'total_of_array' do
     n = total_of_array [1, 3, 5, 6, 2, 8]
     expect(n).to eq 25
   end
 
-  xit 'double_array' do
+  it 'double_array' do
     n = double_array [1, 2, 3]
     expect(n).to eq [1, 2, 3, 1, 2, 3]
   end
 
-  xit 'turn_symbol_into_string' do
+  it 'turn_symbol_into_string' do
     n = turn_symbol_into_string :foobar
     expect(n).to eq 'foobar'
   end
 
-  xit 'average_of_array' do
+  it 'average_of_array' do
     n = average_of_array [10, 15, 25]
     expect(n).to eq 17
   end
@@ -126,7 +126,7 @@ describe 'the Friday test :)' do
     expect(n).to eq ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
   end
 
-  xit 'swap_keys_and_values_in_a_hash' do
+  it 'swap_keys_and_values_in_a_hash' do
     n = swap_keys_and_values_in_a_hash({'a' => 'b', 'c' => 'd'})
     expect(n).to eq({'b' => 'a', 'd' => 'c'})
   end
