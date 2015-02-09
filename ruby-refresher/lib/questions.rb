@@ -1,3 +1,4 @@
+require 'net/http'
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
   array.select {|element| element.split(//).first.downcase == "a"}
@@ -29,7 +30,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
-
+  array.combination(2).to_a
 end
 
 # discard the first 3 elements of an array, 
@@ -142,6 +143,9 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
+  letters = []
+  array.each { |word| letters << word.split(//) }
+  letters.flatten.uniq.sort
 end
 
 # swap the keys and values in a hash. e.g.
@@ -222,6 +226,7 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+  range.exclude_end?
 end
 
 # get the square root of a number
@@ -253,6 +258,11 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+  result = Net::HTTP.get(URI.parse('https://www.gov.uk/bank-holidays.json'))
+  parsedDate = date.to_s.split(/ /).first
+  result.include?(parsedDate)
+  # data = JSON.parse(result)
+  # data["england-and-wales"]["events"] -- england events
 end
 
 # given your birthday this year, this method tells you

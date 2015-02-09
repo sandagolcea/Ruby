@@ -33,7 +33,7 @@ describe 'the Friday test :)' do
     expect(n).to eq ['god', 'yeknom', 'tnahpele']
   end
 
-  xit 'every_possible_pairing_of_students' do
+  it 'every_possible_pairing_of_students' do
     n = every_possible_pairing_of_students(['Bob', 'Dave', 'Clive']) || []
     sorted = n.map {|pair| pair.sort}.sort_by {|pair| [pair.first, pair.last] }
 
@@ -121,7 +121,7 @@ describe 'the Friday test :)' do
     expect(n).to eq({'a' => 'b', 'c' => 'd'})
   end
 
-  xit 'get_all_letters_in_array_of_words' do
+  it 'get_all_letters_in_array_of_words' do
     n = get_all_letters_in_array_of_words ['cat', 'dog', 'fish']
     expect(n).to eq ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
   end
@@ -179,7 +179,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 20
   end
 
-  xit 'is_a_3_dot_range?' do
+  it 'is_a_3_dot_range?' do
     a = is_a_3_dot_range? 1..20
     b = is_a_3_dot_range? 1...20
 
@@ -203,7 +203,7 @@ describe 'the Friday test :)' do
     expect { call_method_from_string('foobar') }.to raise_error(NameError)
   end
 
-  xit 'is_a_2014_bank_holiday?' do
+  it 'is_a_2014_bank_holiday?' do
     a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
     b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
