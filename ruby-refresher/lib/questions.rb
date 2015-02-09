@@ -181,6 +181,9 @@ end
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
+  time = date.to_s.split(/ /).first # keeps only the actual date e.g. 2027-05-23
+  time = time.split(/-/) # split the data into an array of 3 elements: the year, month and day
+  "#{time[2]}/#{time[1]}/#{time[0]}"
 end
 
 # get the domain name *without* the .com part, from an email address
@@ -207,6 +210,7 @@ end
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
+  string.gsub(/[a-zA-Z0-9]/,'').length > 0
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
@@ -227,6 +231,13 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  counter = 0
+  File.open(file_path, "r") do |infile|
+    while (line = infile.gets)
+        line.split(/ /).each { |word| counter = counter + 1 }
+    end
+  end
+  counter
 end
 
 # --- tougher ones ---
@@ -235,6 +246,7 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
+  str_method()
 end
 
 # return true if the date is a uk bank holiday for 2014
@@ -256,6 +268,25 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+  lengths = {}
+  
+  File.open(file_path, "r") do |infile|
+    while (line = infile.gets)
+        line.split(/ /).each { |word| 
+          
+          # remove all non-word chars from word
+          word.gsub!(/[^0-9A-Za-z]/, '')
+          if lengths[word.length]
+            
+            lengths[word.length] += 1
+          else
+            lengths[word.length] = 1
+          end
+        }
+    end
+  end
+
+  lengths
 end
 
 # implement fizzbuzz without modulo, i.e. the % method

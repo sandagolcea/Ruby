@@ -151,7 +151,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 4
   end
 
-  xit 'format_date_nicely' do
+  it 'format_date_nicely' do
     n = format_date_nicely Time.new(2013, 10, 31)
     expect(n).to eq '31/10/2013'
   end
@@ -166,7 +166,7 @@ describe 'the Friday test :)' do
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
 
-  xit 'check_a_string_for_special_characters' do
+  it 'check_a_string_for_special_characters' do
     a = check_a_string_for_special_characters 'ABCdef123'
     b = check_a_string_for_special_characters 'ABC@def123!'
 
@@ -194,12 +194,12 @@ describe 'the Friday test :)' do
     expect(b).to eq 1.7320508075688772
   end
 
-  xit 'word_count_a_file' do
+  it 'word_count_a_file' do
     n = word_count_a_file 'data/lorem.txt'
     expect(n).to eq 70
   end
 
-  xit 'call_method_from_string' do
+  it 'call_method_from_string' do
     expect { call_method_from_string('foobar') }.to raise_error(NameError)
   end
 
@@ -216,8 +216,8 @@ describe 'the Friday test :)' do
     expect(n).to eq 2016
   end
 
-  xit 'count_words_of_each_length_in_a_file' do
-    n = count_words_of_each_length_in_a_file('lorem.txt') || []
+  it 'count_words_of_each_length_in_a_file' do
+    n = count_words_of_each_length_in_a_file('data/lorem.txt') || []
     expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
   end
 end
