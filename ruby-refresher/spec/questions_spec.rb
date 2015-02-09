@@ -71,7 +71,7 @@ describe 'the Friday test :)' do
     expect(b).to eq -7
   end
 
-  xit 'separate_array_into_even_and_odd_numbers' do
+  it 'separate_array_into_even_and_odd_numbers' do
     n = separate_array_into_even_and_odd_numbers [1, 2, 3, 4, 5, 6, 7]
     expect(n).to eq [[2, 4, 6], [1, 3, 5, 7]]
   end
@@ -111,12 +111,12 @@ describe 'the Friday test :)' do
     expect(n).to eq 17
   end
 
-  xit 'get_elements_until_greater_than_five' do
+  it 'get_elements_until_greater_than_five' do
     n = get_elements_until_greater_than_five [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
     expect(n).to eq [1, 3, 5, 4, 1, 2]
   end
 
-  xit 'convert_array_to_a_hash' do
+  it 'convert_array_to_a_hash' do
     n = convert_array_to_a_hash ['a', 'b', 'c', 'd']
     expect(n).to eq({'a' => 'b', 'c' => 'd'})
   end
@@ -131,22 +131,22 @@ describe 'the Friday test :)' do
     expect(n).to eq({'b' => 'a', 'd' => 'c'})
   end
 
-  xit 'add_together_keys_and_values' do
+  it 'add_together_keys_and_values' do
     n = add_together_keys_and_values({1 => 1, 2 => 2})
     expect(n).to eq 6
   end
 
-  xit 'remove_capital_letters_from_string' do
+  it 'remove_capital_letters_from_string' do
     n = remove_capital_letters_from_string 'Hello JohnDoe'
     expect(n).to eq 'ello ohnoe'
   end
 
-  xit 'round_up_number' do
+  it 'round_up_number' do
     n = round_up_number 3.142
     expect(n).to eq 4
   end
 
-  xit 'round_down_number' do
+  it 'round_down_number' do
     n = round_down_number 4.9
     expect(n).to eq 4
   end
@@ -156,12 +156,12 @@ describe 'the Friday test :)' do
     expect(n).to eq '31/10/2013'
   end
 
-  xit 'get_domain_name_from_email_address' do
+  it 'get_domain_name_from_email_address' do
     n = get_domain_name_from_email_address 'alex@makersacademy.com'
     expect(n).to eq 'makersacademy'
   end
 
-  xit 'titleize_a_string' do
+  it 'titleize_a_string' do
     n = titleize_a_string 'the lion the witch and the wardrobe'
     expect(n).to eq 'The Lion the Witch and the Wardrobe'
   end
@@ -174,7 +174,7 @@ describe 'the Friday test :)' do
     expect(b).to be true
   end
 
-  xit 'get_upper_limit_of' do
+  it 'get_upper_limit_of' do
     n = get_upper_limit_of 1..20
     expect(n).to eq 20
   end
@@ -187,7 +187,7 @@ describe 'the Friday test :)' do
     expect(b).to be true
   end
 
-  xit 'square_root_of' do
+  it 'square_root_of' do
     a = square_root_of 9
     b = square_root_of 3
     expect(a).to eq 3.0

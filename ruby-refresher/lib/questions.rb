@@ -69,6 +69,10 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
+  to_return = [];
+  to_return << array.select { |nr| nr.even? }
+  to_return << array.reject { |nr| nr.even? }
+  to_return
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -118,12 +122,19 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
+  stopValue = 6
+  to_return = []
+  array.each { |nr| nr < stopValue ?  to_return << nr : break; }
+  to_return
 end
 
 # turn an array (with an even number of elements) into a hash, by
 # pairing up elements. e.g. ['a', 'b', 'c', 'd'] becomes
 # {'a' => 'b', 'c' => 'd'}
 def convert_array_to_a_hash(array)
+  result = {}
+  array.each_slice(2) {|a,b| result[a] = b }
+  result
 end
 
 # get all the letters used in an array of words and return
@@ -144,21 +155,27 @@ end
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+  sum = 0 
+  hash.each { |x,y| sum += x + y }
+  sum 
 end
 
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
+  string.gsub(/[A-Z]/,'')
 end
 
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
+    ((float - float.round) >= 0.5) || ((float - float.round) <= 0 )  ? float.round : float.round + 1
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
+      ((float - float.round) >= 0.5) || ((float - float.round) < 0 )  ? float.round - 1 : float.round
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
@@ -169,6 +186,8 @@ end
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
+  domain = email.gsub(/^[^\@]*/,'').gsub(/@/,'') # get everything before @ out, and the @ sign
+  domain.gsub(/\.(.+)/,'') # get everything after the comma out
 end
 
 # capitalize the first letter in each word of a string, 
@@ -177,6 +196,11 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
+  string.capitalize!
+  new_title = string.split(/ /).each { |word| 
+    word.capitalize! unless (word == "a" || word == "the" || word == "and")
+  }
+  new_title.join(' ')
 end
 
 # return true if a string contains any special characters
@@ -188,6 +212,7 @@ end
 # get the upper limit of a range. e.g. for the range 1..20, you
 # should return 20
 def get_upper_limit_of(range)
+  range.max
 end
 
 # should return true for a 3 dot range like 1...20, false for a 
@@ -197,6 +222,7 @@ end
 
 # get the square root of a number
 def square_root_of(number)
+  Math.sqrt(number)
 end
 
 # count the number of words in a file
